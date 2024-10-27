@@ -1,9 +1,17 @@
 ---
+import HeaderLink from "../components/HeaderLink.astro";
 interface Props {
 	title: string;
+	page: string;
 }
 
-const { title } = Astro.props;
+const {title, page} = Astro.props;
+
+function getCurrentYear() {
+	const date = new Date();
+	return date.getFullYear();
+}
+
 ---
 
 <!doctype html>
@@ -17,13 +25,32 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+	<header class="m-auto mt-12 px-2 w-[800px] max-w-[calc(100% - 2rem)]">
+		<ul class="flex gap-4 justify-end">
+			<HeaderLink page={page} href="/" title="Home"/>
+			<HeaderLink page={page} href="/about" title="About"/>
+			<HeaderLink page={page} href="/blog" title="Blog"/>
+		</ul>
+	</header>
 		<slot />
+	<footer class="m-auto mt-8 px-2 py-8 w-[800px] max-w-[calc(100% - 2rem)] text-zinc-500 grid grid-cols-3 text-sm">
+		<div>
+			<p>Copyright Lukas Karsch, {getCurrentYear()}.</p>
+			<p>Built with Astro</p>
+		</div>
+		<div>
+			<p><a href="#" class="hover:underline">Impressum</a></p>
+		</div>
+		<div>
+			<p><a href="https://x.com/builtbylukas" target="_blank" class="hover:underline">Twitter</a></p>
+		</div>
+	</footer>
 	</body>
 </html>
 <style is:global>
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
+		--accent: 159, 18, 57;
+		--accent-light: 225, 29, 72;
 		--accent-dark: 49, 10, 101;
 		--accent-gradient: linear-gradient(
 			45deg,
@@ -35,6 +62,7 @@ const { title } = Astro.props;
 	html {
 		font-family: system-ui, sans-serif;
 		background: #13151a;
+		color: white;
 	}
 	code {
 		font-family:

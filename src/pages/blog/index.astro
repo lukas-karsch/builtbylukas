@@ -1,0 +1,28 @@
+---
+import {getCollection} from 'astro:content';
+import Layout from "../../layouts/Layout.astro";
+import Main from "../../components/Main.astro";
+import GradientText from "../../components/GradientText.astro";
+import H1 from "../../components/H1.astro";
+
+const blogEntries = await getCollection("blog");
+---
+
+<Layout title={"Blog | builtbylukas.dev"} page="/blog">
+    <Main>
+        <H1>Lukas'
+            <GradientText>Blog</GradientText>
+        </H1>
+        <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {blogEntries.map((entry) => (
+                    <li>
+                        <a href={`/blog/${entry.slug}`}
+                           class="p-4 bg-zinc-800 rounded-xl block border-2 border-transparent hover:border-rose-800 transition-colors duration-100">
+                            <h3 class="font-bold text-xl mb-2 text-zinc-100">{entry.data.title}</h3>
+                            <p class="text-zinc-200 line-clamp-2">{entry.data.description}</p>
+                        </a>
+                    </li>
+            ))}
+        </ul>
+    </Main>
+</Layout>

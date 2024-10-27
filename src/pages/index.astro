@@ -1,57 +1,47 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import Main from "../components/Main.astro";
+import GradientText from "../components/GradientText.astro";
+import H1 from "../components/H1.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1>My name is <span class="text-gradient">Lukas!</span></h1>
-		<p class="instructions">
-			I am a developer from <strong>Germany.</strong>
-		</p>
-		<ul class="link-card-grid">
-			<Card title="Websites" body="Building static sites with astro or impressive web apps using Next.JS"/>
-			<Card title="Mobile apps" body="Building interactive experiences for mobile devices using React native"/>
-		</ul>
-		<div>
-			<h2>Contact me</h2>
-			<p>soon...</p>
+<Layout title="Home | builtbylukas.dev" page="/">
+	<Main>
+		<H1>Hey. I'm
+			<GradientText>Lukas!</GradientText>
+		</H1>
+		<div class="bg-gradient-to-br from-rose-600 to-rose-800 space-y-4 p-4 rounded-xl mb-8 border-2 border-rose-500">
+			<p>
+				I am a developer from <strong>Stuttgart, Germany.</strong> Currently studying at Stuttgart Media
+				University & just started a full time <strong>internship.</strong>
+			</p>
+			<p>
+				Using my free time to learn & build.
+			</p>
+			<p>
+				<a href="about" class="underline">Find out more</a>
+			</p>
 		</div>
-	</main>
+		<div>
+			<h2 class="text-xl font-bold mb-2">What I'm learning</h2>
+			<ul class="link-card-grid">
+				<Card title="Web Apps" body="Interactive web apps using Next.js and React"/>
+				<Card title="Content & SEO"
+					  body="Growing content-heavy & SEO-optimized websites for local businesses and art galleries."/>
+				<Card title="Mobile apps" body="Smooth experiences for mobile devices using React native"/>
+			</ul>
+		</div>
+	</Main>
 </Layout>
 
 <style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-	}
-	.astro-a {
-		position: absolute;
-		top: -32px;
-		left: 50%;
-		transform: translatex(-50%);
-		width: 220px;
-		height: auto;
-		z-index: -1;
-	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-	}
 	.text-gradient {
 		background-image: var(--accent-gradient);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-size: 400%;
-		background-position: 0%;
+		background-position: 0;
 	}
 	.instructions {
 		margin-bottom: 2rem;
@@ -73,8 +63,8 @@ import Card from '../components/Card.astro';
 	}
 	.link-card-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem;
 		padding: 0;
 	}
 
