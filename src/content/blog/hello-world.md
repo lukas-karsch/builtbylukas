@@ -1,7 +1,7 @@
 ---
 title: Hello World!
 description: My goals & motivation
-tags: [ ]
+tags: [ coding, motivation to code ]
 ---
 
 # Hello World!

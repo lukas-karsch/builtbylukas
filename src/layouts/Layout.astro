@@ -3,9 +3,13 @@ import HeaderLink from "../components/HeaderLink.astro";
 interface Props {
 	title: string;
 	page: string;
+	url?: string,
+	description?: string,
+	type?: "article",
+	keywords?: string
 }
 
-const {title, page} = Astro.props;
+const {title, page, description, type, url, keywords} = Astro.props;
 
 function getCurrentYear() {
 	const date = new Date();
@@ -22,6 +26,11 @@ function getCurrentYear() {
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="sitemap" href="/sitemap-index.xml"/>
+		<meta property="og:title" content={title || "builtbylukas.dev"}>
+		<meta property="og:description" content={description || "Building online | builtbylukas.dev"}>
+		<meta property="og:type" content={type}>
+		<meta property="og:url" content={url}>
+		<meta name="keywords" content={(keywords ?? "") + "coding, building, javascript, typescript"}>
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>

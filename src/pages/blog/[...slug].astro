@@ -14,7 +14,8 @@ export async function getStaticPaths() {
 const {entry} = Astro.props;
 const {Content} = await entry.render();
 ---
-<Layout title={entry.data.title + " | builtbylukas.dev"} page="/blog">
+<Layout title={entry.data.title + " | builtbylukas.dev"} page="/blog" description={entry.description}
+        keywords={entry?.data.tags.join(', ')} url={`https://builtbylukas.dev/blog/${entry.slug}`}>>
     <Main>
         <Prose>
             <Content/>
