@@ -1,6 +1,6 @@
 ---
 title: Building a Chrome Extension to Restore the Google Maps Tab
-tags: [ chrome, extension, maps, google maps ]
+tags: [ chrome, extension, maps, google maps, how to create chrome extension ]
 ---
 
 # Building a Chrome Extension to restore the Google Maps Tab
@@ -13,30 +13,37 @@ As a web developer, I thought:
 > Why not help myself (and others) out?
 
 In this article, we'll walk through the process of creating a Chrome extension that brings back the missing Maps tab,
-ensuring your users can easily access Google Maps directly from the search results.
+so that you can easily access Google Maps directly from the search results!
 
-The full code for this guide is available on my GitHub profile - check it out at the end of the page!
+The full code for this guide is available on my **GitHub profile - check it out at the end of the page**.
 
 ## Understanding Chrome Extensions
 
-Chrome extensions are small software programs that users can install to add new features or modify the behavior of their
-web browser. These extensions are built using standard web technologies like HTML, CSS, and JavaScript.
+You probably know this, but let's recap: Chrome extensions are (small) tools that users can install to add new
+features or modify the behavior of their web browser. These extensions are built using standard web technologies like
+HTML, CSS, and JavaScript.
+
 A Chrome extension typically consists of the following key components:
 
-Manifest File: The manifest.json file is the core of the extension, defining its metadata, permissions, and other
-configuration settings.
-Content Scripts: These are JavaScript files that run in the context of web pages, allowing the extension to interact
-with the page's content and structure.
-Background Scripts: Background scripts handle extension events and manage the overall functionality of the extension.
-Popup/Options UI: Extensions can also include HTML/CSS/JS files that render a popup or options page, providing a user
-interface for the extension.
-Icons: Extensions require various icon sizes (16x16, 48x48, 128x128) to represent the extension in the browser.
+- Manifest File: The manifest.json file is the core of the extension, defining its metadata, permissions, and other
+  configuration settings.
+- Content Scripts: These are JavaScript files that run in the context of web pages, allowing the extension to interact
+  with the page's content and structure.
+- Background Scripts: Background scripts handle extension events and manage the overall functionality of the extension.
+- Popup/Options UI: Extensions can also include HTML/CSS/JS files that render a popup or options page, providing a user
+  interface for the extension.
+- Icons: Extensions require various icon sizes (16x16, 48x48, 128x128) to represent the extension in the browser.
+
+We will actually only need the content.js! However, in my final version that you can download from my GitHub, I also
+included a
+small popup that links to my socials.
 
 ## Building the "Bring Back Maps" Extension
 
-Let's dive into the step-by-step process of creating our extension to restore the Google Maps tab.
+Let's dive into the step-by-step process of creating an extension to restore the Google Maps tab.
 
-Here is what our final result will look like (yes, doesn't look like a lot - but trust me, it's gonna save you time ;)).
+Here is what our final result will look like (yes, doesn't look like a lot - but trust me, it's gonna save you lots of
+time ;) ).
 The image of the map will also be clickable!
 ![Final result: Navbar in Google search displays a "Maps" tab again!](/images/google_search_for_location.png)
 
@@ -47,7 +54,6 @@ Within the directory, we are going to need the following files:
 
 - `manifest.json`
 - `content.js`
-- `styles.css` (optional)
 
 If you have icon files (16x16, 48x48, 128x128 pixels), add them to the project directory.
 
@@ -88,8 +94,7 @@ The manifest.json file is the entry point of your extension. Here's an example c
 
 This configuration specifies that the extension will run on all google.com pages, injecting the
 content.js script and styles.css file. It also declares the required permissions, so we are allowed to access the active
-tab,
-and includes the necessary icon sizes (this is of course optional).
+tab, and includes the necessary icon sizes (this is of course optional).
 
 ### 3. Implementing the content.js Script
 
@@ -129,7 +134,7 @@ history.pushState = function () {
 
 ```
 
-Time to implement the functions. Let's start by determining whether the search is location-related.
+Great! Time to implement the functions. Let's start by determining whether the search is location-related.
 
 ```javascript
 function isLocationSearch() {
@@ -150,8 +155,8 @@ function getInputField() {
 }
 ```
 
-The query selectors might be quite hard to get right if you decide to do something similar on another page. I spent a
-lot of time inside of Chrome devtools. Once you've identified where your desired element is placed, you can also ask
+The query selectors might be quite hard to get right if you decide to do something similar on another page. I spent **a
+lot of time** inside of Chrome devtools. Once you've identified where your desired element is placed, you can also ask
 your favorite LLM (I personally use Claude by Anthropic for coding) to write the querySelector for you.
 
 Alright, Now we know that the search is location-related! Let's actually create the tab in the search navigation bar.
@@ -233,5 +238,5 @@ We implemented our functionality - time to test it out!
 As promised, you can get the code for this extension here:
 [GitHub](https://github.com/lukas-karsch/bringbackmaps)
 
-If anything breaks or you find a bug - let me know! Submit a Pull Request or send a message
+If anything breaks or you find a bug - let me know! Submit a Pull Request or send me a message
 at [x.com/builtbylukas](https://x.com/builtbylukas)
