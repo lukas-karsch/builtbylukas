@@ -47,7 +47,7 @@ time ;) ).
 The image of the map will also be clickable!
 ![Final result: Navbar in Google search displays a "Maps" tab again!](/images/google_search_for_location.png)
 
-### 1. Setting up the Project
+### 1. Setting up the Project for our Chrome Extension
 
 Create a new directory for your extension project.
 Within the directory, we are going to need the following files:
@@ -57,9 +57,9 @@ Within the directory, we are going to need the following files:
 
 If you have icon files (16x16, 48x48, 128x128 pixels), add them to the project directory.
 
-### 2. Configuring the Manifest File
+### 2. Configuring the Manifest JSON File
 
-The manifest.json file is the entry point of your extension. Here's an example configuration:
+The `manifest.json` file is the entry point of your extension. Here's an example configuration:
 
 ```json
 {
