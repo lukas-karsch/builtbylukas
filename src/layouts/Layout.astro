@@ -28,9 +28,9 @@ function getCurrentYear() {
 		<link rel="sitemap" href="/sitemap-index.xml"/>
 		<meta property="og:title" content={title || "builtbylukas.dev"}>
 		<meta property="og:description" content={description || "Building online | builtbylukas.dev"}>
-		<meta property="og:type" content={type}>
+		<meta property="og:type" content={type ?? "article"}>
 		<meta property="og:url" content={url}>
-		<meta name="keywords" content={(keywords ?? "") + "coding, building, javascript, typescript"}>
+		<meta name="keywords" content={(keywords ?? "") + "coding, building, javascript, typescript, chrome extension"}>
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
