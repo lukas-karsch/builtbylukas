@@ -1,0 +1,89 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Main from "../../components/Main.astro";
+import H1 from "../../components/H1.astro";
+import GradientText from "../../components/GradientText.astro";
+---
+
+<Layout
+        title="bringbackmaps - Restore the Google Maps Button | builtbylukas.dev"
+        page="/bringbackmaps"
+        url="https://builtbylukas.dev/bringbackmaps"
+        keywords="restore google maps, bring back google maps button, google maps extension, fix google search maps, chrome extension for google maps">
+    <Main>
+        <H1>
+            <GradientText>bringbackmaps</GradientText>
+            – Restore the Google Maps Button in Search Results!
+        </H1>
+        <div class="space-y-4">
+            <h2 class="text-3xl mb-8 tracking-tight">How to fix the Google Maps button with <em>bringbackmaps</em></h2>
+            <div>
+                bringbackmaps is a free and open-source Chrome extension that brings the Google Maps tab back to your
+                search results, making any location-related searches much easier and time-efficient.
+            </div>
+            <div>
+                <img
+                        class="rounded-xl"
+                        src="/images/google_search_for_location.png"
+                        alt="Screenshot of bringbackmaps extension restoring Google Maps button in search results"/>
+                <p class="text-sm mt-4 text-zinc-200">Screenshot: bringbackmaps adds the Google Maps button and
+                    clickable map box to search results.</p>
+            </div>
+
+            <h2 class="text-3xl mt-8 tracking-tight">How to Use bringbackmaps</h2>
+            <div class="flex items-start gap-x-4">
+                <div class="space-y-2 w-2/3">
+                    <p>Follow these simple steps to bring back the Google Maps button:</p>
+                    <ol class="list-decimal ml-6 space-y-2">
+                        <li>Install the extension <a
+                                href="https://chromewebstore.google.com/detail/bringbackmaps/dhfofnchclaidhjihbikjjemdodddlji"
+                                class="underline font-bold tracking-tight">from the Chrome Web Store</a>.
+                        </li>
+                        <li>Click the blue "Add to Chrome" button.</li>
+                        <li>Enjoy restored Google Maps functionality for all your location-related searches!</li>
+                    </ol>
+                    <p class="pt-4">
+                        <a href="https://chromewebstore.google.com/detail/bringbackmaps/dhfofnchclaidhjihbikjjemdodddlji"
+                           target="_blank"
+                           class="inline-block px-6 py-3 bg-gradient-to-br from-rose-400 to-rose-600 text-white font-semibold text-sm rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out hover:scale-105">
+                            Download Now
+                        </a>
+                    </p>
+                </div>
+                <div class="w-1/3">
+                    <img
+                            src="/images/bringbackmaps-logo-full.png"
+                            alt="bringbackmaps Chrome extension logo"
+                            class="w-full h-auto rounded-xl"/>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <h2 class="text-3xl mt-8 tracking-tight">Features of bringbackmaps - a Google Search chrome extension
+                    for Maps</h2>
+                <ul class="list-disc ml-6 space-y-2">
+                    <li>Restores the Google Maps tab to search results.</li>
+                    <li>Makes the map box clickable for easy navigation.</li>
+                    <li>100% free and open-source – no fees, no ads, no collected data</li>
+                    <li>Lightweight and easy to install.</li>
+                </ul>
+            </div>
+
+            <div class="space-y-4">
+                <h2 class="text-3xl mt-8 tracking-tight">Privacy Guaranteed</h2>
+                <p>Your privacy is our top priority. <em>bringbackmaps</em> does not collect, store, or share any of
+                    your data. Everything is executed locally; none of your data is sent anywhere! <strong>All of our
+                        functionality happens inside of your browser.</strong></p>
+
+                <h2 class="text-3xl mt-8 tracking-tight">Open-Source and Transparent</h2>
+                <p>Curious about how it works? Check out the source code on GitHub:</p>
+                <p>
+                    <a href="https://github.com/lukas-karsch/bringbackmaps" class="underline">https://github.com/lukas-karsch/bringbackmaps</a>
+                </p>
+                <p>Or read the related blog article on how this extension was built: <a
+                        href="blog/chrome-extension-for-maps" class="underline">Building a Chrome Extension to restore
+                    the Google Maps Tab</a></p>
+            </div>
+        </div>
+    </Main>
+</Layout>

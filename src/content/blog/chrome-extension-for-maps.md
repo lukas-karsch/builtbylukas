@@ -1,5 +1,6 @@
 ---
 title: Building a Chrome Extension to Restore the Google Maps Tab
+description: A comprehensive guide on how to restore the Google Maps search button with your own Chrome extension
 tags: [ chrome, extension, maps, google maps, how to create chrome extension ]
 ---
 
@@ -15,7 +16,8 @@ As a web developer, I thought:
 In this article, we'll walk through the process of creating a Chrome extension that brings back the missing Maps tab,
 so that you can easily access Google Maps directly from the search results!
 
-The full code for this guide is available on my **GitHub profile - check it out at the end of the page**.
+The full code for this guide & a download link for the final extension is available on my **GitHub profile - check it
+out [at the end of the page](#download-the-extension-to-bring-back-the-google-maps-tab-in-google-search)**.
 
 ## Understanding Chrome Extensions
 
@@ -237,6 +239,9 @@ We implemented our functionality - time to test it out!
 
 As promised, you can get the code for this extension here:
 [GitHub](https://github.com/lukas-karsch/bringbackmaps)
+
+Or add the extension directly to chrome by downloading it from
+the [Chrome Web store](https://chromewebstore.google.com/detail/bringbackmaps/dhfofnchclaidhjihbikjjemdodddlji)
 
 If anything breaks or you find a bug - let me know! Submit a Pull Request or send me a message
 at [x.com/builtbylukas](https://x.com/builtbylukas)
