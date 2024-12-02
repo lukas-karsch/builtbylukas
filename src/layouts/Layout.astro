@@ -30,7 +30,8 @@ function getCurrentYear() {
 		<meta property="og:description" content={description || "Building online | builtbylukas.dev"}>
 		<meta property="og:type" content={type ?? "article"}>
 		<meta property="og:url" content={url}>
-		<meta name="keywords" content={(keywords ?? "") + "coding, building, javascript, typescript, chrome extension"}>
+		<meta name="keywords"
+			  content={(keywords ?? "") + ", coding, building, javascript, typescript, chrome extension"}>
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
@@ -38,8 +39,8 @@ function getCurrentYear() {
 	<header class="m-auto mt-12 px-2 w-[800px] max-w-[calc(100%-2rem)]">
 		<ul class="flex gap-4 justify-end">
 			<HeaderLink page={page} href="/" title="Home"/>
-			<HeaderLink page={page} href="/about" title="About"/>
-			<HeaderLink page={page} href="/blog" title="Blog"/>
+			<HeaderLink page={page} href="/about/" title="About"/>
+			<HeaderLink page={page} href="/blog/" title="Blog"/>
 		</ul>
 	</header>
 		<slot />
@@ -53,7 +54,7 @@ function getCurrentYear() {
 			<p><a href="#" class="hover:underline">Impressum</a></p>
 		</div>
 		<div>
-			<p><a href="https://x.com/builtbylukas" target="_blank" class="hover:underline">x.com/builtbylukas</a></p>
+			<p><a href="https://x.com/builtbylukas/" target="_blank" class="hover:underline">x.com/builtbylukas</a></p>
 		</div>
 	</footer>
 	</body>
