@@ -2,6 +2,7 @@
 title: Building a Chrome Extension to Restore the Google Maps Tab
 description: A comprehensive guide on how to restore the Google Maps search button with your own Chrome extension
 tags: [ chrome, extension, maps, google maps, how to create chrome extension ]
+publishDate: 2024-11-26
 ---
 
 # Building a Chrome Extension to restore the Google Maps Tab

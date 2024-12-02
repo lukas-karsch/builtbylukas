@@ -2,6 +2,7 @@
 title: Fix location search - revive Google Maps button
 description: A simple & 100% free chrome extension that restores the Maps button for location search
 tags: [ maps, google maps, maps button, how to add google maps, fix google maps, location search ]
+publishDate: 2024-12-02
 ---
 
 # Fixing location search by restoring the Google Maps Tab: A Developer's Solution

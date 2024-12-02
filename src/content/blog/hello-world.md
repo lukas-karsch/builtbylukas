@@ -2,6 +2,7 @@
 title: Hello World!
 description: My goals & motivation
 tags: [ coding, motivation to code ]
+publishDate: 2024-11-02
 ---
 
 # Hello World!
