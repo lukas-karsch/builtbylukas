@@ -1,6 +1,6 @@
 ---
 title: Add Google Maps back to your search - bringbackmaps
-description: A simple & 100% free chrome extension
+description: How to bring back your Maps button on Google
 tags: [ maps, google maps, maps button, how to add google maps, fix google maps ]
 publishDate: 2024-11-28
 ---

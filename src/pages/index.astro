@@ -1,81 +1,114 @@
 ---
+import {getCollection} from "astro:content";
 import Layout from '../layouts/Layout.astro';
+import {getCollection} from 'astro:content';
 import Card from '../components/Card.astro';
 import Main from "../components/Main.astro";
 import GradientText from "../components/GradientText.astro";
 import H1 from "../components/H1.astro";
+
+const blogEntries = await getCollection("blog");
 ---
 
 <Layout title="Lukas Karsch | builtbylukas.dev" page="/">
-	<Main>
-		<H1>Hey. I'm
-			<GradientText>Lukas!</GradientText>
-		</H1>
-		<div class="bg-gradient-to-br from-rose-600 to-rose-800 space-y-4 p-4 rounded-xl mb-8 border-2 border-rose-500">
-			<p>
-				My name is Lukas Karsch - I am a developer from <strong>Stuttgart, Germany,</strong> currently studying
-				at Stuttgart Media
-				University & just started a full time <strong>internship!</strong>
-			</p>
-			<p>
-				Using my free time to learn & build.
-			</p>
-			<p>
-				<a href="about" class="underline">Find out more</a>
-			</p>
-		</div>
-		<div>
-			<h2 class="text-xl font-bold mb-2">What I'm building right now</h2>
-			<ul class="link-card-grid">
-				<Card title="bringbackmaps"
-					  body="A simple & 100% free Chrome extension to restore the Google Maps button"
-					  href="bringbackmaps"/>
-				<!--<Card title="Content & SEO"-->
-				<!--	  body="Growing content-heavy & SEO-optimized websites for local businesses and art galleries."/>-->
-				<!--<Card title="Mobile apps" body="Smooth experiences for mobile devices using React native"/>-->
-			</ul>
-		</div>
-	</Main>
+    <Main>
+        <H1>Hey. I'm
+            <GradientText>Lukas!</GradientText>
+        </H1>
+        <div class="bg-gradient-to-br from-rose-600 to-rose-800 space-y-4 p-4 rounded-xl border-2 border-rose-500">
+            <p>
+                My name is Lukas Karsch - I am a developer from <strong>Stuttgart, Germany,</strong> currently studying
+                at Stuttgart Media
+                University & just started a full time <strong>internship!</strong>
+            </p>
+            <p>
+                Using my free time to learn & build.
+            </p>
+            <p>
+                <a href="about" class="underline">Find out more</a>
+            </p>
+        </div>
+        <div class="mt-8">
+            <h2 class="text-2xl font-bold mb-2">What I'm building right now</h2>
+            <ul class="link-card-grid">
+                <Card title="bringbackmaps"
+                      body="A simple & 100% free Chrome extension to restore the Google Maps button"
+                      href="bringbackmaps"/>
+                <!--<Card title="Content & SEO"-->
+                <!--	  body="Growing content-heavy & SEO-optimized websites for local businesses and art galleries."/>-->
+                <!--<Card title="Mobile apps" body="Smooth experiences for mobile devices using React native"/>-->
+            </ul>
+        </div>
+        <div class="mt-8">
+            <h2 class="text-2xl font-bold mb-2">My most recent blog posts</h2>
+            <ul class="space-y-4">
+                {blogEntries
+                    .filter(entry => entry.data.publishDate !== undefined)
+                    .sort((e1, e2) => {
+                        return e1.data.publishDate < e2.data.publishDate ? 1 : -1;
+                    })
+                    .slice(0, 3)
+                    .map(({slug, data}) => (
+                            <li>
+                                <h3 class="text-lg text-zinc-100">
+                                    <a href={`/blog/${slug}`} class="underline">{data.title}</a>
+                                </h3>
+                                <p class="text-zinc-400 text-sm">
+                                    Published {data.publishDate.toLocaleDateString("en", {
+                                    day: "numeric",
+                                    month: "long",
+                                    year: "numeric",
+                                })}</p>
+                                <p class="text-zinc-200 line-clamp-2 mt-2">{data.description}</p>
+                            </li>
+                    ))}
+            </ul>
+        </div>
+    </Main>
 </Layout>
 
 <style>
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0;
-	}
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
-		padding: 1.5rem;
-		border-radius: 8px;
-	}
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent-light));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 1rem;
-		padding: 0;
-	}
+    .text-gradient {
+        background-image: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 400%;
+        background-position: 0;
+    }
 
-	code {
-		font-size: 90%;
-		text-decoration: underline;
-		background: #755893;
-		border-radius: 4px;
-		padding: 2px;
-	}
+    .instructions {
+        margin-bottom: 2rem;
+        border: 1px solid rgba(var(--accent-light), 25%);
+        background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
+        padding: 1.5rem;
+        border-radius: 8px;
+    }
+
+    .instructions code {
+        font-size: 0.8em;
+        font-weight: bold;
+        background: rgba(var(--accent-light), 12%);
+        color: rgb(var(--accent-light));
+        border-radius: 4px;
+        padding: 0.3em 0.4em;
+    }
+
+    .instructions strong {
+        color: rgb(var(--accent-light));
+    }
+
+    .link-card-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        padding: 0;
+    }
+
+    code {
+        font-size: 90%;
+        text-decoration: underline;
+        background: #755893;
+        border-radius: 4px;
+        padding: 2px;
+    }
 </style>

@@ -8,21 +8,31 @@ import H1 from "../../components/H1.astro";
 const blogEntries = await getCollection("blog");
 ---
 
-<Layout title={"Blog | builtbylukas.dev"} page="/blog">
+<Layout title={"Blog | builtbylukas.dev"} page="/blog/">
     <Main>
         <H1>Lukas'
             <GradientText>Blog</GradientText>
         </H1>
         <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {blogEntries.map((entry) => (
+            {blogEntries
+                .filter(entry => entry.data.publishDate !== undefined)
+                .sort((e1, e2) => {
+                    return e1.data.publishDate < e2.data.publishDate ? 1 : -1;
+                }).map(({slug, data}) => (
                     <li>
-                        <a href={`/blog/${entry.slug}`}
+                        <a href={`/blog/${slug}`}
                            class="p-4 bg-zinc-800 rounded-xl block border-2 border-transparent hover:border-rose-800 transition-colors duration-100">
-                            <h3 class="font-bold text-xl mb-2 text-zinc-100">{entry.data.title}</h3>
-                            <p class="text-zinc-200 line-clamp-2">{entry.data.description}</p>
+                            <h3 class="font-bold text-xl mb-2 text-zinc-100">{data.title}</h3>
+                            <p class="text-zinc-400 text-sm">
+                                Published {data.publishDate.toLocaleDateString("en", {
+                                day: "numeric",
+                                month: "long",
+                                year: "numeric",
+                            })}</p>
+                            <p class="text-zinc-200 line-clamp-2 mt-2">{data.description}</p>
                         </a>
                     </li>
-            ))}
+                ))}
         </ul>
     </Main>
 </Layout>

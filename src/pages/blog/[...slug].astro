@@ -6,7 +6,7 @@ import Prose from "../../components/Prose.astro";
 
 export async function getStaticPaths() {
     const blogEntries = await getCollection('blog');
-    return blogEntries.map(entry => ({
+    return blogEntries.filter(entry => entry.data.publishDate !== undefined).map(entry => ({
         params: {slug: entry.slug}, props: {entry},
     }));
 }
