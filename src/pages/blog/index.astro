@@ -17,14 +17,14 @@ const blogEntries = await getCollection("blog");
             {blogEntries
                 .filter(entry => entry.data.publishDate !== undefined)
                 .sort((e1, e2) => {
-                    return e1.data.publishDate < e2.data.publishDate ? 1 : -1;
+                    return e1.data.publishDate! < e2.data.publishDate! ? 1 : -1;
                 }).map(({slug, data}) => (
                     <li>
                         <a href={`/blog/${slug}`}
                            class="p-4 bg-zinc-800 rounded-xl block border-2 border-transparent hover:border-rose-800 transition-colors duration-100">
                             <h3 class="font-bold text-xl mb-2 text-zinc-100">{data.title}</h3>
                             <p class="text-zinc-400 text-sm">
-                                Published {data.publishDate.toLocaleDateString("en", {
+                                Published {data.publishDate!.toLocaleDateString("en", {
                                 day: "numeric",
                                 month: "long",
                                 year: "numeric",

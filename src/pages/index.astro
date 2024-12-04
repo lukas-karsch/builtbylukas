@@ -1,5 +1,4 @@
 ---
-import {getCollection} from "astro:content";
 import Layout from '../layouts/Layout.astro';
 import {getCollection} from 'astro:content';
 import Card from '../components/Card.astro';
@@ -45,7 +44,7 @@ const blogEntries = await getCollection("blog");
                 {blogEntries
                     .filter(entry => entry.data.publishDate !== undefined)
                     .sort((e1, e2) => {
-                        return e1.data.publishDate < e2.data.publishDate ? 1 : -1;
+                        return e1.data.publishDate! < e2.data.publishDate! ? 1 : -1;
                     })
                     .slice(0, 3)
                     .map(({slug, data}) => (
@@ -54,7 +53,7 @@ const blogEntries = await getCollection("blog");
                                     <a href={`/blog/${slug}`} class="underline">{data.title}</a>
                                 </h3>
                                 <p class="text-zinc-400 text-sm">
-                                    Published {data.publishDate.toLocaleDateString("en", {
+                                    Published {data.publishDate!.toLocaleDateString("en", {
                                     day: "numeric",
                                     month: "long",
                                     year: "numeric",
